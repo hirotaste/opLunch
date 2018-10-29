@@ -1,0 +1,7 @@
+{
+  "name": "OpLunch",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Operative Lunch
+    </ion-title>
+    <ion-buttons end>
+      <button navPush="AddProdutoPage" ion-button>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      Produtos
+    </ion-list-header>
+    <ion-grid>
+      <ion-item *ngFor="let item of prodList$ | async; index as i; first as isFirst" [ngStyle]="((i%2) == 0) && {'background-color':'#dddddd'}">
+        <ion-row>
+          <ion-col col-9 justify-content-start><b>{{i}}- {{item.name}}</b></ion-col>
+          <ion-col col-3 text-right>{{ item.price | currency:'BRL' }}</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="danger" (click)="removeItem(item.key)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-grid>
+  </ion-list>
+</ion-content>
